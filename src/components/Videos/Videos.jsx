@@ -1,10 +1,9 @@
 import React from 'react'
 import { mockItems } from '../../mocks/youtube-videos-mock'
-import styles from './Videos.module.scss' 
-import { Thumbnail } from '../styled/Thumbnail'
-import { VideoTitle } from '../styled/VideoTitle'
-import { H1 } from '../styled/H1'
-import { VideosContainer, VideoElement } from '../styled/VideosContainer'
+import { Thumbnail } from '../Styled/Thumbnail'
+import { VideoTitle } from '../Styled/VideoTitle'
+import { H1 } from '../Styled/H1'
+import { VideosContainer, VideoElement } from '../Styled/VideosContainer'
 
 function Videos() {
 
@@ -18,9 +17,9 @@ function Videos() {
         <VideosContainer>
         {mockItems.map((video) => {
             return(
-                <VideoElement className={styles.element} key={video.etag}>
+                <VideoElement key={video.etag}>
                     <Thumbnail src={video.snippet.thumbnails.default.url} alt=""/><br/>
-                    <VideoTitle className={styles.videoTitle}>{truncate(video.snippet.title)}</VideoTitle>  
+                    <VideoTitle>{truncate(video.snippet.title)}</VideoTitle>  
                 </VideoElement>
             )}
         )}

@@ -2,11 +2,11 @@ import React from "react";
 import {screen, render} from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 
-import Header from "./Header.js";
+import Header from "/Users/giovanna.ponce/Documents/capstone1/src/components/Header/Header.js";
 
 
 describe("Header", () => {
-    it("must display Home btn", () => { 
+    it("must display Home btn", () => {
         render(
             <BrowserRouter>
                 <Header />
