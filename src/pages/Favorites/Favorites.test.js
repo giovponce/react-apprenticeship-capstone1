@@ -10,7 +10,7 @@ test('loads and displays placeholder text', async () => {
     render(
         <BrowserRouter>
             <Favorites />
-        </BrowserRouter>);
+        </BrowserRouter>); 
 
     expect(screen.getByTitle('placeholder')).toHaveTextContent('This page will show the favorites')
 })

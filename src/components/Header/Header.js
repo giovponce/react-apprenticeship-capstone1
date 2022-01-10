@@ -9,7 +9,7 @@ export default function Header() {
 
 
     return (
-        <HeaderContainer>
+        <HeaderContainer> 
             <SearchBar>
                 <SearchInput type="text"></SearchInput>
                 <SearchBtn>

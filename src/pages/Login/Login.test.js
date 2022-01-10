@@ -10,7 +10,7 @@ test('loads and displays placeholder text', async () => {
     render(
         <BrowserRouter>
             <Login />
-        </BrowserRouter>);
+        </BrowserRouter>); 
 
     expect(screen.getByTitle('placeholder')).toHaveTextContent('Login page!')
 })

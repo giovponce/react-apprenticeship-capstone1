@@ -6,7 +6,7 @@ import Header from "/Users/giovanna.ponce/Documents/capstone1/src/components/Hea
 
 
 describe("Header", () => {
-    it("must display Home btn", () => {
+    it("must display Home btn", () => { 
         render(
             <BrowserRouter>
                 <Header />

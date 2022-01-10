@@ -7,7 +7,7 @@ import  Videos   from '/Users/giovanna.ponce/Documents/capstone1/src/components/
 describe('Videos', () => {
     it('must display a title', () => {
         render(<Videos />);
-        expect(screen.getByText(/videos/i)).toBeInTheDocument();
+        expect(screen.getByText(/videos/i)).toBeInTheDocument(); 
     });
     it('must render data from json', () => {
         render(<Videos />);
