@@ -2,7 +2,7 @@ import React from "react";
 import {screen, render} from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom/cjs/react-router-dom.min";
 
-import Header from "/Users/giovanna.ponce/Documents/capstone1/src/components/Header/Header.js";
+import Header from "./Header.js";
 
 
 describe("Header", () => {
