@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '/Users/giovanna.ponce/Documents/capstone1/src/components/Header/Header.js';
+import Header from '../../components/Header/Header';
 
 
 function DetailsPage() {

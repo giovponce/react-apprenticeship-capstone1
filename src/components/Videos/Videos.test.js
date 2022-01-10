@@ -1,6 +1,6 @@
 import React from 'react';
 import { screen, render } from '@testing-library/react';
-import  Videos   from '/Users/giovanna.ponce/Documents/capstone1/src/components/Videos/Videos.jsx';
+import  Videos   from './Videos';
 
 
 
