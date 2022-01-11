@@ -10,7 +10,7 @@ function LoginPage() {
   return (
     <section className="login">
       <Header />
-      <H1 title="placeholder">Login page!</H1>
+      <H1>Login page!</H1>
     </section>
   );
 }

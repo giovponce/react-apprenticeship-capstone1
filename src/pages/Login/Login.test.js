@@ -12,5 +12,5 @@ test('loads and displays placeholder text', async () => {
             <Login />
         </BrowserRouter>); 
 
-    expect(screen.getByTitle('placeholder')).toHaveTextContent('Login page!')
+    expect(screen.getByText('Login page!')).toBeInTheDocument()
 })
