@@ -1,0 +1,23 @@
+PASS src/components/Videos/Videos.test.js
+  Videos
+    ✓ must display a title (73 ms)
+    ✓ must render data from json (51 ms)
+    ✓ must truncate the text (29 ms)
+
+Running coverage on untested files...Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        1.9 s, estimated 2 s
+Ran all test suites related to changed files.
+PASS src/pages/Favorites/Favorites.test.js
+PASS src/pages/FavDetails/FavDetails.test.js
+PASS src/components/Header/Header.test.js
+PASS src/pages/Details/Details.test.js
+PASS src/pages/Login/Login.test.js
+PASS src/components/Videos/Videos.test.js
+Running coverage on untested files...
+Test Suites: 6 passed, 6 total
+Tests:       10 passed, 10 total
+Snapshots:   0 total
+Time:        4.236 s
+Ran all test suites.
