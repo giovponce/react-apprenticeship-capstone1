@@ -12,5 +12,5 @@ test('loads and displays placeholder text', async () => {
             <Favorites />
         </BrowserRouter>); 
 
-    expect(screen.getByTitle('placeholder')).toHaveTextContent('This page will show the favorites')
+    expect(screen.getByText('This page will show the favorites')).toBeInTheDocument();
 })

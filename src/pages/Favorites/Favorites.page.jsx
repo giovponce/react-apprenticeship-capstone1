@@ -7,7 +7,7 @@ export default function Favorites() {
     return (
         <section>
           <Header />
-          <p title="placeholder"> 
+          <p> 
             This page will show the favorites
           </p>
         </section>

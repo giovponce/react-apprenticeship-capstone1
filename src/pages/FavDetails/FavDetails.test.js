@@ -10,5 +10,5 @@ test('loads and displays placeholder text', async () => {
             <FavDetails />
         </BrowserRouter>);
  
-    expect(screen.getByTitle('placeholder')).toHaveTextContent('fav details page (private)')
+     expect(screen.getByText('fav details page (private)')).toBeInTheDocument();
 })

@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
+import { H1 } from '../../components/Styled/H1'
+
 
 
 function LoginPage() {
@@ -8,7 +10,7 @@ function LoginPage() {
   return (
     <section className="login">
       <Header />
-      <h1 title="placeholder">Login page!</h1>
+      <H1 title="placeholder">Login page!</H1>
     </section>
   );
 }

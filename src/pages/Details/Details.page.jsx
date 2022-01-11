@@ -1,12 +1,14 @@
 import React from 'react'
 import Header from '../../components/Header/Header';
+import { H1 } from '../../components/Styled/H1'
+
 
 
 function DetailsPage() {
     return (
         <div>
             <Header />
-            <h1 title="placeholder">this is the details page</h1>
+            <H1>this is the details page</H1>
         </div>
     )
 }

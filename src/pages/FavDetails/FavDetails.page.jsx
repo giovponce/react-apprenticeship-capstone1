@@ -6,7 +6,7 @@ export default function FavDetails() {
     return (
         <div>
             <Header />
-            <p title="placeholder">fav details page (private)</p>
+            <p>fav details page (private)</p>
         </div>
     )
 }
