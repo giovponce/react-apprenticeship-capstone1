@@ -5,6 +5,7 @@ import { Thumbnail } from '../../utils/StyledComponents/Thumbnail';
 import { FlexContainer } from '../../utils/StyledComponents/FlexContainer';
 import { IFrameStyled } from '../../utils/StyledComponents/IFrameStyled';
 import { useParams } from 'react-router-dom';
+import { StyledLink } from '../../utils/StyledComponents/StyledLink';
 
 
 
@@ -34,10 +35,12 @@ function DetailsPage({videosList}) {
                 <VideosContainer>
                 {videos.map((video) => {
                     return(
-                        <VideoElement key={video.etag}>
-                            <Thumbnail src={video.snippet.thumbnails.default.url} alt=""/><br/>
-                            <VideoTitle>{video.snippet.title}</VideoTitle>  
-                        </VideoElement>
+                        <StyledLink to={`/details/${video.id.videoId}`} key={video.id.videoId}>
+                            <VideoElement key={video.etag}>
+                                <Thumbnail src={video.snippet.thumbnails.default.url} alt=""/><br/>
+                                <VideoTitle>{video.snippet.title}</VideoTitle>  
+                            </VideoElement>
+                        </StyledLink>
                     )}
                 )}
                 </VideosContainer>
