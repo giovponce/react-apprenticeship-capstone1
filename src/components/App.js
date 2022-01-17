@@ -1,29 +1,66 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
-import HomePage from '../pages/Home'
-import DetailsPage from '../pages/Details'
-import Favorites from '../pages/Favorites'
-import FavDetails from '../pages/FavDetails'
-import Login from '../pages/Login'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from '../pages/Home';
+import DetailsPage from '../pages/Details';
+import Favorites from '../pages/Favorites';
+import FavDetails from '../pages/FavDetails';
+import Login from '../pages/Login';
+import Header from '../components/Header';
+import useAxiosFetch  from '../utils/hooks/UseAxiosFetch';
+
+const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&key=${process.env.REACT_APP_UNSPLASHED_KEY}&q=`;
 
 function App() {
+
+  const [ searchTerm, setSearchTerm ] = React.useState('Wizeline');
+  const [ search, setSearch ] = React.useState('');
+
+  const { videosList } = useAxiosFetch( 
+    `${API_URL}${searchTerm}`, search
+  )
+
+  const updateSearchTerm = (q) => {
+    setSearchTerm(q)
+  };
+
+  const getVideoResult = (newSearch) => {
+    setSearch(newSearch)
+  }
+
     return (
         <BrowserRouter>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/details">
-              <DetailsPage />
-            </Route>
-            <Route exact path="/favorites">
-              <Favorites />
-            </Route>
-            <Route exact path="/favDetails">
-              <FavDetails />
-            </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
+          <div>
+            <Header  searchTerm={searchTerm} updateSearchTerm={updateSearchTerm} getVideoResult={getVideoResult}/>
+            <Routes>
+              <Route path="/"
+              element={
+              <Home videosList={videosList} />
+              }>
+              </Route>
+              <Route path="/details/:id"
+                element={
+                  <DetailsPage 
+                  videosList={videosList}
+                />
+                  }>
+              </Route>
+              <Route exact path="/favorites"
+                element={
+                  <Favorites />
+                  }>
+              </Route>
+              <Route exact path="/favDetails"
+                element={
+                  <FavDetails />
+                  }>
+              </Route>
+              <Route exact path="/login"
+                element={
+                  <Login />
+                  }>
+              </Route>
+            </Routes>
+          </div>
         </BrowserRouter>
     )
 }
