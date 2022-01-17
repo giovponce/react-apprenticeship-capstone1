@@ -8,9 +8,7 @@ import Login from '../pages/Login';
 import Header from '../components/Header';
 import useAxiosFetch  from '../utils/hooks/UseAxiosFetch';
 
-const API_KEY = 'AIzaSyBHaI3fGkb4ESH7TLnAEZfzcYLT6xJ7V74';
-const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&key=${API_KEY}&q=`;
-
+const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&key=${process.env.REACT_APP_UNSPLASHED_KEY}&q=`;
 
 function App() {
 

@@ -9,7 +9,6 @@ const useAxiosFetch = (url, search) => {
         try {
             const response = await axios.get(url);
             const items = await response.data.items;
-            console.log(items);
             setvideosList(items);
          } catch (error) {
             console.error(error);

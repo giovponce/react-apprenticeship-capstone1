@@ -10,12 +10,9 @@ import { StyledLink } from '../../utils/StyledComponents/StyledLink';
 
 
 function DetailsPage({videosList}) {
-  console.log(videosList);
   const { id } = useParams();
-  console.log(id);
 
   const videos = videosList ? videosList : [];
-  console.log(videos);
   const [selected] = videos.filter((video) => video.id.videoId === id);
   const videoTitle = selected ? selected.snippet.title : '';
   const videoDescription = selected ? selected.snippet.description : '';

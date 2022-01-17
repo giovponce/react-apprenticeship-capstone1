@@ -6,7 +6,6 @@ import { VideoTitle } from '..//utils/StyledComponents/VideoTitle';
 
 export default function VideoPlayer(id) {
 
-    console.log(id);
 
     if(!id){
         return (

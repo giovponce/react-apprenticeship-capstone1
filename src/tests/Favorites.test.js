@@ -7,4 +7,10 @@ describe('Favorites', () => {
     test('renders the Favorites component', () => {
       render(<Favorites />);
     });
+
+    // test('must show favorite videos', () => {
+    //   render(<Favorites />);
+    // });
+
+
   });
