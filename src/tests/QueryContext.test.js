@@ -1,6 +1,6 @@
 import Search from '../components/Search';
 import { render, screen} from '@testing-library/react';
-import { QueryProvider } from '../Context/QueryContext';
+import { QueryContext, QueryProvider } from '../Context/QueryContext';
 
 describe('Query context', () => {
     test('initial value is wizeline', () => {
@@ -8,9 +8,9 @@ describe('Query context', () => {
         const inputText = screen.getByTestId("search-input");
         expect(inputText.value).toBe("Wizeline");
     });
-    // test('initial value is changed', () => {
-    //     render(<QueryContext.Provider value='test'><Search/></QueryContext.Provider>);
-    //     const inputText = screen.getByTestId("search-input");
-    //     expect(inputText.value).toBe("test");
-    // });
+    test('value is changed', () => {
+        render(<QueryContext.Provider value='test'><Search/></QueryContext.Provider>);
+        const inputText = screen.getByTestId("search-input");
+        expect(inputText.value).toBe("test");
+    });
 });
