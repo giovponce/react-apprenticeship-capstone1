@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders component render app 1`] = `
+<div>
+  <div
+    class="lightTheme"
+  >
+    <div
+      class="sc-jrQzAO fKkZku"
+    >
+      <form
+        class="sc-bqiRlB kmiahl"
+      >
+        <input
+          aria-label="Search"
+          class="sc-crHmcD xrrMp"
+          data-testid="search-input"
+          placeholder="Search"
+          type="search"
+          value=""
+        />
+        <button
+          class="sc-kDTinF bzwRMz"
+        >
+          Search
+        </button>
+      </form>
+      <a
+        class="sc-iCfMLu jCGOcy"
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        class="sc-iCfMLu jCGOcy"
+        href="/favorites"
+      >
+        Favorites
+      </a>
+      <a
+        class="sc-iCfMLu jCGOcy"
+        href="/login"
+      >
+        Login
+      </a>
+      <button
+        class="sc-kDTinF bzwRMz"
+      >
+        Change theme
+      </button>
+    </div>
+    <div>
+      <h1
+        class="sc-hKwDye hCoQax"
+      >
+        Videos
+      </h1>
+      <div
+        class="sc-gsDKAQ iKIdJv"
+      />
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`theme context initial theme should be light 1`] = `
+<div>
+  <h1>
+    Hello
+  </h1>
+</div>
+`;
