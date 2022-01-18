@@ -2,9 +2,8 @@ import { Button } from '../utils/StyledComponents/Button';
 import { SearchInput } from '../utils/StyledComponents/SearchBar';
 import { SearchFormStyled } from '../utils/StyledComponents/SearchForm';
 import { useQuery, useQueryUpdate } from '../Context/QueryContext';
-import { QueryProvider } from '../Context/QueryContext';
 
-const SearchForm = ({ searchTerm, getVideoResult }) => {
+const SearchForm = ({ getVideoResult }) => {
 
   const term = useQuery();
   const changeQuery = useQueryUpdate();
@@ -20,7 +19,7 @@ const SearchForm = ({ searchTerm, getVideoResult }) => {
 
 
   return (
-    <QueryProvider>
+    
       <SearchFormStyled
         onSubmit={handleSubmit}
       >
@@ -36,7 +35,6 @@ const SearchForm = ({ searchTerm, getVideoResult }) => {
           Search
         </Button>
       </SearchFormStyled>
-    </QueryProvider>
   );
 };
 

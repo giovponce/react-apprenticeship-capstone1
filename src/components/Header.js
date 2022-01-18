@@ -10,14 +10,16 @@ import { ThemeContext } from '../Context/ThemeContext';
 export default function Header({ getVideoResult }) {
     
     const theme = useContext(ThemeContext);
-    const { state }  = theme ? theme : {};
-    const { darkMode } = state ? state : {};
+    const { darkMode } = theme?.state ?? {};
+
+    const light = "LIGHTMODE"
+    const dark = "DARKMODE"
 
     const changeTheme = () => {
         if (darkMode)
-          theme.dispatch({ type: "LIGHTMODE" });
+          theme.dispatch({ type: light });
         else
-          theme.dispatch({ type: "DARKMODE" });
+          theme.dispatch({ type: dark });
     };
 
     return (
