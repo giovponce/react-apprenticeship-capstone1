@@ -3,24 +3,26 @@ import { StyledLink } from '../utils/StyledComponents/StyledLink';
 import { HeaderContainer } from '../utils/StyledComponents/HeaderContainer';
 import { Button } from '../utils/StyledComponents/Button';
 import Search from './Search';
-import { ThemeContext } from '../Context/GlobalContext';
+import { ThemeContext } from '../Context/ThemeContext';
 
 
-export default function Header({ searchTerm, updateSearchTerm, getVideoResult }) {
+
+export default function Header({ getVideoResult }) {
     
     const theme = useContext(ThemeContext);
-    const darkMode = theme.state.darkMode;
+    const { state }  = theme ? theme : {};
+    const { darkMode } = state ? state : {};
 
     const changeTheme = () => {
         if (darkMode)
           theme.dispatch({ type: "LIGHTMODE" });
         else
           theme.dispatch({ type: "DARKMODE" });
-      };
+    };
 
     return (
         <HeaderContainer>
-            <Search searchTerm={searchTerm} updateSearchTerm={updateSearchTerm} getVideoResult={getVideoResult}/> 
+            <Search getVideoResult={getVideoResult}/> 
             <StyledLink to="/">Home</StyledLink>
             <StyledLink to="/favorites">Favorites</StyledLink>
             <StyledLink to="/login">Login</StyledLink>

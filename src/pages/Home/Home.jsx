@@ -6,7 +6,7 @@ import { VideoTitle } from '../../utils/StyledComponents/VideoTitle';
 import { StyledLink } from '../../utils/StyledComponents/StyledLink';
 
 function Home({ videosList }) {
-  
+
   return (
     <div>
       <H1>Videos</H1>

@@ -7,9 +7,10 @@ import FavDetails from '../pages/FavDetails';
 import Login from '../pages/Login';
 import Header from '../components/Header';
 import useAxiosFetch  from '../utils/hooks/UseAxiosFetch';
-import { ThemeContext } from "../Context/GlobalContext";
+import { ThemeContext } from "../Context/ThemeContext";
+import { useQuery } from '../Context/QueryContext';
+// import { UserContext } from "../Context/UserContext";
 import './App.css';
-
 
 
 const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&key=${process.env.REACT_APP_UNSPLASHED_KEY}&q=`;
@@ -17,18 +18,18 @@ const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=
 function App() {
   
   const theme = useContext(ThemeContext);
-  const darkMode = theme.state.darkMode;
+  const { state }  = theme ? theme : {};
+  const { darkMode } = state ? state : {};
 
-  const [ searchTerm, setSearchTerm ] = React.useState('Wizeline');
+  // const loggedUser = useContext(UserContext);
+
+  const term = useQuery();
+
   const [ search, setSearch ] = React.useState('');
 
   const { videosList } = useAxiosFetch( 
-    `${API_URL}${searchTerm}`, search
+    `${API_URL}${term}`, search
   )
-
-  const updateSearchTerm = (q) => {
-    setSearchTerm(q)
-  };
 
   const getVideoResult = (newSearch) => {
     setSearch(newSearch)
@@ -37,7 +38,7 @@ function App() {
     return (
         <BrowserRouter>
           <div className={`${darkMode ? "darkTheme" : "lightTheme"}`}>
-            <Header searchTerm={searchTerm} updateSearchTerm={updateSearchTerm} getVideoResult={getVideoResult}/>
+            <Header getVideoResult={getVideoResult}/>
             <Routes>
               <Route path="/"
               element={

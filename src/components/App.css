@@ -1,10 +1,12 @@
 .darkTheme{
-    background-color: #1a1a1a;
+    background-color: #787878;
     color: #fff;
+    height: 100vh;
 
 }
 
 .lightTheme{
     background-color: #fff;
     color: #1a1a1a;
+    height: 100vh;
 }
