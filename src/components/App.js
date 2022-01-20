@@ -1,30 +1,34 @@
 import React, { useContext }from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import axios from 'axios';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Home from '../pages/Home';
 import DetailsPage from '../pages/Details';
-import Favorites from '../pages/Favorites';
+import FavoritesPage from '../pages/Favorites';
 import FavDetails from '../pages/FavDetails';
 import Login from '../pages/Login';
 import Header from '../components/Header';
 import useAxiosFetch  from '../utils/hooks/UseAxiosFetch';
 import { ThemeContext } from "../Context/ThemeContext";
 import { useQuery } from '../Context/QueryContext';
-// import { UserContext } from "../Context/UserContext";
+import { AuthProvider, useAuth } from '../Context/AuthContext';
 import './App.css';
+import { mockItems } from '../mocks/youtube-videos-mock';
 
 
-const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&key=${process.env.REACT_APP_UNSPLASHED_KEY}&q=`;
+const API_URL = `${process.env.REACT_APP_SEARCH_URL}`;
 
 function App() {
-  
   const theme = useContext(ThemeContext);
   const { state }  = theme ? theme : {};
   const { darkMode } = state ? state : {};
 
-  // const loggedUser = useContext(UserContext);
+  const PrivateRoute = ({ children }) => {
+    const { authenticated}  = useAuth();
+    return authenticated ? children : <Navigate to="/" />;
+  }
+
 
   const term = useQuery();
-
   const [ search, setSearch ] = React.useState('');
 
   const { videosList } = useAxiosFetch( 
@@ -35,37 +39,64 @@ function App() {
     setSearch(newSearch)
   }
 
+  const items = { ...localStorage };
+  const videoIds = items ? Object.keys(items) : [];
+  
+  for( var i = 0; i < videoIds.length; i++){   
+    if ( videoIds[i] === 'wa_cert_authenticated') { 
+      videoIds.splice(i, 1); 
+    }
+  }
+  
+  const API_URL2 = `${process.env.REACT_APP_FAVORITES_URL}`;
+  
+  let favoriteVideos = [];
+   async function getFavVideos(videoIds){   
+     console.log(videoIds);
+      videoIds.forEach(async (videoId) => {
+          try {
+              const response = await axios.get(`${API_URL2}${videoId}`);
+              const items = await response.data.items;
+              favoriteVideos.push(items[0]);
+          } catch (error) {
+              console.error(error);
+          }
+      })  
+  };
+
+  if(videoIds.length > 0){
+    getFavVideos(videoIds);
+  }else{
+    favoriteVideos = mockItems;
+  }
+
     return (
         <BrowserRouter>
           <div className={`${darkMode ? "darkTheme" : "lightTheme"}`}>
-            <Header getVideoResult={getVideoResult}/>
+          <AuthProvider>
+            <Header getVideoResult={getVideoResult} getFavVideos={getFavVideos}/>
+            </AuthProvider>
             <Routes>
               <Route path="/"
-              element={
-              <Home videosList={videosList} />
-              }>
+              element={<Home videosList={videosList} />}>
               </Route>
               <Route path="/details/:id"
-                element={
-                  <DetailsPage 
-                  videosList={videosList}
-                />
-                  }>
+                element={<DetailsPage videosList={videosList}/>}>
               </Route>
-              <Route exact path="/favorites"
+              <Route path="/favorites" 
                 element={
-                  <Favorites />
-                  }>
+                <PrivateRoute>
+                  <FavoritesPage favoriteVideos={favoriteVideos}/>
+                </PrivateRoute>}>
               </Route>
-              <Route exact path="/favDetails"
+              <Route path="/favDetails/:id"
                 element={
-                  <FavDetails />
-                  }>
+                <PrivateRoute>
+                  <FavDetails favoriteVideos={favoriteVideos}/>
+                </PrivateRoute>}>
               </Route>
               <Route exact path="/login"
-                element={
-                  <Login />
-                  }>
+                element={<Login />}>
               </Route>
             </Routes>
           </div>

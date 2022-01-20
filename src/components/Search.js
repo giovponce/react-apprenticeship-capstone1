@@ -1,9 +1,12 @@
 import { Button } from '../utils/StyledComponents/Button';
 import { SearchInput } from '../utils/StyledComponents/SearchBar';
-import { SearchFormStyled } from '../utils/StyledComponents/SearchForm';
+import { SearchFormStyled } from '../utils/StyledComponents/StyledForm';
 import { useQuery, useQueryUpdate } from '../Context/QueryContext';
+// import { useNavigate } from "react-router-dom";
+
 
 const SearchForm = ({ getVideoResult }) => {
+  // const navigate = useNavigate();
 
   const term = useQuery();
   const changeQuery = useQueryUpdate();
@@ -14,6 +17,7 @@ const SearchForm = ({ getVideoResult }) => {
 
   const handleClick = () => {
     getVideoResult(term);
+    // navigate("/")  
   };
 
 

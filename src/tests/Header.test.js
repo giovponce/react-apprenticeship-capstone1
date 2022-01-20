@@ -14,10 +14,4 @@ describe('Header', () => {
         const header = screen.getByText(/Home/i);
         expect(header).toBeInTheDocument();
       });
-    
-      test('header should have favorites btn', () => {
-        render(<Header />);
-        const header = screen.getByText(/Favorites/i);
-        expect(header).toBeInTheDocument();
-      });
 });
