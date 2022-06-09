@@ -1,0 +1,17 @@
+.heartBtn{
+    cursor: pointer;
+    color: red;
+    font-size: 1em;
+    margin-left: 2em;
+}
+
+.heartBtnDisabled{
+    cursor: not-allowed;
+    color: gray;
+    font-size: 1em;
+    margin-left: 2em;
+}
+
+.tooltipHeart{
+    font-family: 'Courier New', Courier, monospace;
+}

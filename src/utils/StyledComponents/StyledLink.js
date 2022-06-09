@@ -12,3 +12,16 @@ export const StyledLink = styled(Link)`
         color: #00bcd4;
     }
 `;
+
+export const StyledA = styled.a`
+    text-decoration: none;
+    color: rgb(34, 34, 34);
+    font-family: sans-serif;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+    cursor:pointer;
+
+    &:hover {
+        color: #00bcd4;
+    }
+`;

@@ -8,9 +8,11 @@ describe('Favorites', () => {
       render(<Favorites />);
     });
 
-    // test('must show favorite videos', () => {
-    //   render(<Favorites />);
-    // });
+    test('must be able to retrieve from local storage', () => {
+      render(<Favorites />);
+      const items = { ...localStorage };
+      expect(items).toBeTruthy();
+    });
 
 
   });
